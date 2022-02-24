@@ -1,0 +1,21 @@
+<resources>
+    <string name="username1">إسم المستخدم</string>
+    <string name="password1">كلمة المرور</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="newAccount">ليس لديك حساب؟ إضغط هنا</string>
+    <string name="forget">هل نسيت كلمة المرور؟</string>
+    <string name="pass">كلمة المرور</string>
+    <string name="repass">اعادة كلمة المرور</string>
+    <string name="phone_num">رقم الهاتف</string>
+    <string name="register">تسجيل</string>
+    <string name="lastName">الاسم الاخير</string>
+    <string name="firstName">الاسم الأول</string>
+    <string name="classification">التصنيف</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="check">أدخل رمز التأكيد</string>
+    <string name="authentic">رمز التحقق</string>
+    <string name="dont_do">أدخل الرمز المكون من 4 ألارقام الذي تم إرساله في رقم هاتفك</string>
+    <string name="check_btn">تحقق</string>
+    <string name="didnt_get_code">لم يصلك رمز التحقق؟</string>
+    <string name="resend">إضغط هنا لإعادة الإرسال</string>
+</resources>
