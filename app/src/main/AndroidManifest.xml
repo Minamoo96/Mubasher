@@ -3,12 +3,12 @@
     package="com.example.mobasher">
 
     <application
-        android:icon="@mipmap/mobasher_icon_new"
+        android:icon="@mipmap/mobasher_icon_fresh"
         android:label="Mobasher مباشر"
-        android:roundIcon="@mipmap/mobasher_icon_new_round"
+        android:roundIcon="@mipmap/mobasher_icon_fresh_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AppartmentsActivity"></activity>
+        <activity android:name=".AppartmentsActivity"/>
         <activity android:name=".NewPasswordActivity" />
         <activity android:name=".PasswordResetActivity" />
         <activity android:name=".OtpActivity" />
