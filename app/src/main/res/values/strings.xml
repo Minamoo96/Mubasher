@@ -18,4 +18,11 @@
     <string name="check_btn">تحقق</string>
     <string name="didnt_get_code">لم يصلك رمز التحقق؟</string>
     <string name="resend">إضغط هنا لإعادة الإرسال</string>
+    <string name="confirm">تأكيد</string>
+    <string name="retypepass">أعد كلمة المرور</string>
+    <string name="typepass">كلمة المرور</string>
+    <string name="commitpass">قم بإدخال كلمة المرور الجديدة</string>
+    <string name="phone3">رقم الهاتف</string>
+    <string name="search_account">بحث عن الحساب</string>
+    <string name="commit_phone">أدخل رقم الهاتف الخاص بك للبحث عن حسابك</string>
 </resources>
