@@ -8,7 +8,8 @@
         android:roundIcon="@mipmap/mobasher_icon_new_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NewPasswordActivity"/>
+        <activity android:name=".AppartmentsActivity"></activity>
+        <activity android:name=".NewPasswordActivity" />
         <activity android:name=".PasswordResetActivity" />
         <activity android:name=".OtpActivity" />
         <activity android:name=".RegisterActivity" />
