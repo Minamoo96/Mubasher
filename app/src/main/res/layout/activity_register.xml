@@ -56,24 +56,6 @@
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <AutoCompleteTextView
-        android:id="@+id/text_field_specification"
-        android:layout_width="320dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:hint="@string/classification"
-        android:drawableEnd="@drawable/ic_account"
-        android:padding="5dp"
-        android:fontFamily="@font/jazeera_arabic_regular"
-        android:textColorHint="@color/colorPrimary"
-        android:textColor="@color/colorSimiPrimary"
-        android:textSize="16sp"
-        android:background="@drawable/edit_text_shape"
-        android:spinnerMode="dropdown"
-        android:visibility="visible"
-        android:inputType="textAutoComplete"/>
-
     <EditText
         android:id="@+id/text_field_phone"
         android:layout_marginTop="10dp"
@@ -91,6 +73,7 @@
         android:inputType="phone"/>
 
     <EditText
+        android:id="@+id/text_field_email"
         android:background="@drawable/edit_text_shape"
         android:layout_marginTop="10dp"
         android:layout_gravity="center"
@@ -142,7 +125,7 @@
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/btn_shape"
         android:text="@string/register"
         android:textSize="22sp"
