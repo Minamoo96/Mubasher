@@ -23,101 +23,105 @@
 
         <EditText
             android:id="@+id/text_field_last_name"
-            android:layout_marginHorizontal="10dp"
             android:layout_width="150dp"
             android:layout_height="40dp"
-            android:hint="@string/lastName"
-            android:textSize="16sp"
+            android:layout_gravity="start"
+            android:layout_marginHorizontal="10dp"
             android:background="@drawable/edit_text_shape"
             android:drawableEnd="@drawable/ic_username"
-            android:padding="5dp"
             android:fontFamily="@font/jazeera_arabic_regular"
-            android:layout_gravity="start"
-            android:textColorHint="@color/colorPrimary"
+            android:hint="@string/lastName"
+            android:inputType="text"
+            android:padding="5dp"
             android:textColor="@color/colorSimiPrimary"
-            android:inputType="text"/>
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="16sp"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <EditText
-            android:layout_marginHorizontal="10dp"
             android:id="@+id/text_field_first_name"
             android:layout_width="150dp"
             android:layout_height="40dp"
-            android:hint="@string/firstName"
-            android:textSize="16sp"
-            android:textAlignment="viewEnd"
+            android:layout_gravity="end"
+            android:layout_marginHorizontal="10dp"
             android:background="@drawable/edit_text_shape"
             android:drawableEnd="@drawable/ic_username"
-            android:padding="5dp"
             android:fontFamily="@font/jazeera_arabic_regular"
-            android:layout_gravity="end"
-            android:textColorHint="@color/colorPrimary"
+            android:hint="@string/firstName"
+            android:inputType="text"
+            android:padding="5dp"
+            android:textAlignment="viewEnd"
             android:textColor="@color/colorSimiPrimary"
-            android:inputType="text"/>
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="16sp"
+            tools:ignore="TouchTargetSizeCheck" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <EditText
         android:id="@+id/text_field_phone"
-        android:layout_marginTop="10dp"
         android:layout_width="320dp"
         android:layout_height="40dp"
         android:layout_gravity="center"
+        android:layout_marginTop="10dp"
         android:background="@drawable/edit_text_shape"
         android:drawableStart="@drawable/ic_phone"
-        android:hint="@string/phone_num"
         android:fontFamily="@font/jazeera_arabic_regular"
+        android:hint="@string/phone_num"
+        android:inputType="phone"
         android:padding="5dp"
         android:textColor="@color/colorSimiPrimary"
         android:textColorHint="@color/colorPrimary"
         android:textSize="16sp"
-        android:inputType="phone"/>
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/text_field_email"
-        android:background="@drawable/edit_text_shape"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
         android:layout_width="320dp"
         android:layout_height="40dp"
-        android:hint="@string/email"
-        android:padding="5dp"
-        android:fontFamily="@font/jazeera_arabic_regular"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edit_text_shape"
         android:drawableEnd="@drawable/ic_mail"
-        android:textColorHint="@color/colorPrimary"
+        android:fontFamily="@font/jazeera_arabic_regular"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
-        />
+        android:padding="5dp"
+        android:textColorHint="@color/colorPrimary"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/text_field_password"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
         android:layout_width="320dp"
         android:layout_height="40dp"
-        android:textSize="16sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
         android:background="@drawable/edit_text_shape"
-        android:hint="@string/pass"
-        android:fontFamily="@font/jazeera_arabic_regular"
-        android:textColorHint="@color/colorPrimary"
-        android:textColor="@color/colorSimiPrimary"
-        android:padding="5dp"
         android:drawableStart="@drawable/ic_baseline_lock_24"
-        android:inputType="textPassword"/>
+        android:fontFamily="@font/jazeera_arabic_regular"
+        android:hint="@string/pass"
+        android:inputType="textPassword"
+        android:padding="5dp"
+        android:textColor="@color/colorSimiPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:textSize="16sp"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/text_field_repass"
-        android:layout_marginTop="10dp"
         android:layout_width="320dp"
         android:layout_height="45dp"
         android:layout_gravity="center"
+        android:layout_marginTop="10dp"
         android:background="@drawable/edit_text_shape"
-        android:textColor="@color/colorSimiPrimary"
-        android:hint="@string/repass"
-        android:fontFamily="@font/jazeera_arabic_regular"
-        android:padding="5dp"
-        android:textColorHint="@color/colorPrimary"
         android:drawableStart="@drawable/ic_baseline_lock_24"
+        android:fontFamily="@font/jazeera_arabic_regular"
+        android:hint="@string/repass"
         android:inputType="textPassword"
-        />
+        android:padding="5dp"
+        android:textColor="@color/colorSimiPrimary"
+        android:textColorHint="@color/colorPrimary"
+        tools:ignore="TouchTargetSizeCheck" />
 
 
     <Button
@@ -127,12 +131,12 @@
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:background="@drawable/btn_shape"
+        android:fontFamily="@font/jazeera_arabic_regular"
         android:text="@string/register"
+        android:textColor="@color/colorSimiPrimary"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:textColor="@color/colorSimiPrimary"
-        android:fontFamily="@font/jazeera_arabic_regular"
-        />
+        tools:ignore="TextContrastCheck" />
 
 
 </LinearLayout>

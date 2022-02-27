@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -22,12 +23,12 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:layout_margin="5dp"
+                android:layout_marginTop="5dp"
                 android:layout_gravity="center"
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Title Here"
+                android:text="@string/title_here"
                 android:textColor="@color/colorSimiPrimary"
                 android:textSize="22sp"
                 android:fontFamily="@font/jazeera_arabic_regular"/>
@@ -37,7 +38,7 @@
                 android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rooms Here"
+                android:text="@string/rooms_here"
                 android:fontFamily="@font/jazeera_arabic_regular"
                 android:textColor="@color/colorSimiPrimary"
                 android:textSize="16sp"
@@ -48,22 +49,23 @@
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Type Here"
+                android:text="@string/type_here"
                 android:textSize="16sp"
                 android:fontFamily="@font/jazeera_arabic_regular"
                 android:textColor="@color/colorSimiPrimary"/>
 
             <Button
                 android:id="@+id/details"
-                android:layout_margin="5dp"
-                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="تفاصيل"
-                android:textSize="18sp"
-                android:fontFamily="@font/jazeera_arabic_regular"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
                 android:background="@drawable/btn_shape"
-                android:textColor="@color/colorSimiPrimary"/>
+                android:fontFamily="@font/jazeera_arabic_regular"
+                android:text="@string/details"
+                android:textColor="@color/colorSimiPrimary"
+                android:textSize="18sp"
+                tools:ignore="TextContrastCheck" />
 
         </LinearLayout>
     </LinearLayout>

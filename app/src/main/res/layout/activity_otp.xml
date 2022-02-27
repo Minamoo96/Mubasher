@@ -47,63 +47,66 @@
 
         <EditText
             android:id="@+id/input_code1"
-            android:layout_gravity="center"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@drawable/edit_text_shape"
             android:imeOptions="actionNext"
             android:inputType="number"
+            android:maxLength="1"
             android:textAlignment="center"
             android:textColor="@color/colorSimiPrimary"
-            android:maxLength="1"
             android:textSize="22sp"
             android:textStyle="bold"
-            android:background="@drawable/edit_text_shape"
-            tools:ignore="LabelFor" />
+            tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
         <EditText
-            android:layout_marginStart="10dp"
             android:id="@+id/input_code2"
-            android:layout_gravity="center"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:textColor="@color/colorSimiPrimary"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/edit_text_shape"
             android:imeOptions="actionNext"
             android:inputType="number"
-            android:textAlignment="center"
             android:maxLength="1"
+            android:textAlignment="center"
+            android:textColor="@color/colorSimiPrimary"
             android:textSize="22sp"
             android:textStyle="bold"
-            android:background="@drawable/edit_text_shape"
-            tools:ignore="LabelFor" />
+            tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
         <EditText
-            android:layout_marginStart="10dp"
             android:id="@+id/input_code3"
-            android:layout_gravity="center"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:textColor="@color/colorSimiPrimary"
-            android:imeOptions="actionNext"
-            android:inputType="number"
-            android:textAlignment="center"
-            android:maxLength="1"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:background="@drawable/edit_text_shape"
-            tools:ignore="LabelFor" />
-        <EditText
+            android:layout_gravity="center"
             android:layout_marginStart="10dp"
-            android:id="@+id/input_code4"
-            android:layout_gravity="center"
-            android:layout_width="50dp"
-            android:textAlignment="center"
-            android:layout_height="50dp"
-            android:textColor="@color/colorSimiPrimary"
+            android:background="@drawable/edit_text_shape"
             android:imeOptions="actionNext"
             android:inputType="number"
             android:maxLength="1"
+            android:textAlignment="center"
+            android:textColor="@color/colorSimiPrimary"
             android:textSize="22sp"
             android:textStyle="bold"
+            tools:ignore="LabelFor,SpeakableTextPresentCheck" />
+
+        <EditText
+            android:id="@+id/input_code4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
             android:background="@drawable/edit_text_shape"
-            tools:ignore="LabelFor" />
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textAlignment="center"
+            android:textColor="@color/colorSimiPrimary"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:ignore="LabelFor,SpeakableTextPresentCheck" />
 
     </LinearLayout>
 
@@ -117,31 +120,32 @@
         android:textColor="@color/colorSimiPrimary"
         android:fontFamily="@font/jazeera_arabic_regular"
         />
+
     <TextView
         android:id="@+id/resend"
-        android:layout_marginTop="10dp"
-        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/resend"
-        android:fontFamily="@font/jazeera_arabic_regular"
-        android:textSize="18sp"
-        android:textColor="@color/colorSimiPrimary"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
         android:clickable="true"
         android:focusable="true"
-        />
+        android:fontFamily="@font/jazeera_arabic_regular"
+        android:text="@string/resend"
+        android:textColor="@color/colorSimiPrimary"
+        android:textSize="18sp"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
+        android:layout_width="180dp"
+        android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         android:background="@drawable/btn_shape"
-        android:layout_width="180dp"
-        android:layout_height="50dp"
-        android:text="@string/check_btn"
-        android:textStyle="bold"
-        android:textSize="22sp"
         android:fontFamily="@font/jazeera_arabic_regular"
+        android:text="@string/check_btn"
         android:textColor="@color/colorSimiPrimary"
-        />
+        android:textSize="22sp"
+        android:textStyle="bold"
+        tools:ignore="TextContrastCheck" />
 
 </LinearLayout>

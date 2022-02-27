@@ -27,4 +27,8 @@
     <string name="commit_phone">أدخل رقم الهاتف الخاص بك للبحث عن حسابك</string>
     <string name="welcome">مرحبا بكم في مباشر</string>
     <string name="first">تطبيقك الأول لإختيار عقارك</string>
+    <string name="type_here">Type Here</string>
+    <string name="rooms_here">Rooms Here</string>
+    <string name="title_here">Title Here</string>
+    <string name="details">تفاصيل</string>
 </resources>

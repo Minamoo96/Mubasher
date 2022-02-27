@@ -63,30 +63,32 @@
 
     <TextView
         android:id="@+id/new_acount"
-        android:layout_marginTop="15dp"
-        android:layout_gravity="center"
-        android:clickable="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/newAccount"
-        android:textSize="16sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:clickable="true"
+        android:focusable="true"
         android:fontFamily="@font/jazeera_arabic_regular"
+        android:text="@string/newAccount"
         android:textColor="@color/colorSimiPrimary"
+        android:textSize="16sp"
         android:textStyle="bold"
-        android:focusable="true" />
+        tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/forget_password"
-        android:layout_marginTop="15dp"
-        android:layout_gravity="center"
-        android:clickable="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/forget"
-        android:textSize="16sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:clickable="true"
+        android:focusable="true"
         android:fontFamily="@font/jazeera_arabic_regular"
+        android:text="@string/forget"
         android:textColor="@color/colorSimiPrimary"
+        android:textSize="16sp"
         android:textStyle="bold"
-        android:focusable="true" />
+        tools:ignore="TouchTargetSizeCheck" />
 
 </LinearLayout>
