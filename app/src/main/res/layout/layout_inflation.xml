@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/img"
+            android:layout_gravity="center"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:src="@drawable/mubashir_icon_trans"/>
+        <LinearLayout
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_margin="5dp"
+                android:layout_gravity="center"
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Title Here"
+                android:textColor="@color/colorSimiPrimary"
+                android:textSize="22sp"
+                android:fontFamily="@font/jazeera_arabic_regular"/>
+            <TextView
+                android:id="@+id/rooms"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rooms Here"
+                android:fontFamily="@font/jazeera_arabic_regular"
+                android:textColor="@color/colorSimiPrimary"
+                android:textSize="16sp"
+                />
+            <TextView
+                android:id="@+id/type"
+                android:layout_margin="5dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type Here"
+                android:textSize="16sp"
+                android:fontFamily="@font/jazeera_arabic_regular"
+                android:textColor="@color/colorSimiPrimary"/>
+
+            <Button
+                android:id="@+id/details"
+                android:layout_margin="5dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="تفاصيل"
+                android:textSize="18sp"
+                android:fontFamily="@font/jazeera_arabic_regular"
+                android:background="@drawable/btn_shape"
+                android:textColor="@color/colorSimiPrimary"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

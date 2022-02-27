@@ -36,7 +36,8 @@ public class RegisterActivity extends AppCompatActivity {
                 }
                 else {
                     if (fpassword.getText().toString().equals(lpassword.getText().toString())){
-                        Toast.makeText(RegisterActivity.this,"شكراً لتسجيلك معنا :" + fname + " "+laname,Toast.LENGTH_LONG).show();
+                        Toast.makeText(RegisterActivity.this,"شكراً لتسجيلك معنا :" + fname.getText().toString()
+                                + " "+laname.getText().toString(),Toast.LENGTH_LONG).show();
                         startActivity(new Intent(RegisterActivity.this, OtpActivity.class));
                     }else {
                         Toast.makeText(RegisterActivity.this,"تأكد من كلمات المرور يجب يتشابها",Toast.LENGTH_LONG).show();
