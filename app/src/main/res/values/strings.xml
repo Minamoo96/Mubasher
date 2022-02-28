@@ -31,4 +31,7 @@
     <string name="rooms_here">Rooms Here</string>
     <string name="title_here">Title Here</string>
     <string name="details">تفاصيل</string>
+    <string name="suits">شقق فندقية</string>
+    <string name="fullapart">شقق مفروشة</string>
+    <string name="notFullApart">شقق غير مفروشة</string>
 </resources>

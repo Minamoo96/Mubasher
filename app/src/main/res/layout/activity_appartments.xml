@@ -4,22 +4,102 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AppartmentsActivity"
-    android:background="#fff"
+    android:background="@drawable/mubashir_login"
     android:orientation="vertical">
+    <LinearLayout
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgProfile"
+            android:layout_gravity="center"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_person_add"
+            />
+        <TextView
+            android:id="@+id/textName"
+            android:layout_marginStart="10dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome :"
+            android:textStyle="bold"
+            android:textColor="@color/colorSimiPrimary"
+            android:textSize="18sp"
+            android:fontFamily="@font/jazeera_arabic_regular"/>
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+
+        <ImageView
+            android:id="@+id/imgs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    </androidx.cardview.widget.CardView>
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="20dp"
         android:layout_gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="400dp">
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-        <ListView
-            android:id="@+id/list_apartments"
+        <Button
+            android:id="@+id/suitApart"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/btn_shape"
+            android:fontFamily="@font/jazeera_arabic_regular"
+            android:text="@string/suits"
+            android:textColor="@color/colorSimiPrimary"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/fullApart"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/btn_shape"
+            android:fontFamily="@font/jazeera_arabic_regular"
+            android:text="@string/fullapart"
+            android:textColor="@color/colorSimiPrimary"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck" />
+
+        <Button
+            android:id="@+id/simiFullApart"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/btn_shape"
+            android:fontFamily="@font/jazeera_arabic_regular"
+            android:text="@string/notFullApart"
+            android:textColor="@color/colorSimiPrimary"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="TextContrastCheck" />
     </LinearLayout>
+
+
 
 </LinearLayout>
