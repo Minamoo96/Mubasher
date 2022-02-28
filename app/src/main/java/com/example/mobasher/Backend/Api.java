@@ -1,12 +1,6 @@
-package com.example.mobasher;
-
-import retrofit2.Retrofit;
+package com.example.mobasher.Backend;
 
 public class Api {
 
-    public static ApiInterface getClient() {
 
-        Retrofit.Builder adapter = new Retrofit.Builder()
-
-    }
 }

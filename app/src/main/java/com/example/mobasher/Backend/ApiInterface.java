@@ -1,4 +1,4 @@
-package com.example.mobasher;
+package com.example.mobasher.Backend;
 
 import retrofit2.Callback;
 import retrofit2.http.Field;
@@ -9,9 +9,9 @@ public interface ApiInterface {
 
     @FormUrlEncoded // annotation used in POST type requests
     @POST("/retrofit/register.php")     // API's endpoints
-    public void registration(@Field("name") String name,
-                             @Field("email") String email,
-                             @Field("password") String password,
-                             @Field("logintype") String logintype,
-                             Callback<SignUpUser> callback);
+    void registration(@Field("name") String name,
+                      @Field("email") String email,
+                      @Field("password") String password,
+                      @Field("logintype") String logintype,
+                      Callback<SignUpUser> callback);
 }
