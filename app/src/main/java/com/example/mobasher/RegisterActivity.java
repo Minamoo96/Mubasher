@@ -73,19 +73,11 @@ public class RegisterActivity extends Activity {
         findViewById(R.id.register_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (fname.getText().toString().isEmpty() || fname.getText().toString().isEmpty() ||
-                phone.getText().toString().isEmpty() || email.getText().toString().isEmpty() ||
-                fpassword.getText().toString().isEmpty() || lpassword.getText().toString().isEmpty()){
-                    Toast.makeText(RegisterActivity.this, "تأكد من ملئ كل الحقول.",Toast.LENGTH_LONG).show();
-                }
-                else {
-                    if (fpassword.getText().toString().equals(lpassword.getText().toString())){
-                        Toast.makeText(RegisterActivity.this,"شكراً لتسجيلك معنا :" + fname.getText().toString()
-                                + " "+laname.getText().toString(),Toast.LENGTH_LONG).show();
+                if (checkIfNull(fname.getText().toString(),laname.getText().toString(),
+                        phone.getText().toString(),email.getText().toString(),fpassword.toString(),
+                        lpassword.getText().toString())){
+                    if (checkPasswords(fpassword.getText().toString(),lpassword.getText().toString())){
                         startActivity(new Intent(RegisterActivity.this, OtpActivity.class));
-                    }else {
-                        Toast.makeText(RegisterActivity.this,"تأكد من كلمات المرور يجب يتشابها",Toast.LENGTH_LONG).show();
                     }
                 }
             }
@@ -117,5 +109,20 @@ public class RegisterActivity extends Activity {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             imageAdder.setImageBitmap(photo);
         }
+    }
+
+    public boolean checkIfNull(String fname, String lname, String email, String phone, String fpass, String lpass){
+
+        if (fname == null || lname == null || email == null || phone == null || fpass == null || lpass == null){
+            Toast.makeText(this,"يجب ملئ جميع الحقول بصورة صحيحة", Toast.LENGTH_SHORT).show();
+        }
+        return false;
+    }
+
+    public boolean checkPasswords(String Password1, String Password2){
+        if (!Password1.equals(Password2)){
+            Toast.makeText(this,"تأكد من تطابق كلمات المرور ثم حاول مرة اخرى", Toast.LENGTH_SHORT).show();
+        }
+        return false;
     }
 }
