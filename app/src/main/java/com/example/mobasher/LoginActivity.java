@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.mobasher.Utils.SharedPrefManager;
+
 public class LoginActivity extends AppCompatActivity {
 
     EditText username,password;
@@ -36,18 +38,23 @@ public class LoginActivity extends AppCompatActivity {
         findViewById(R.id.login_botton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                checkIfNull(username.getText().toString(),password.getText().toString());
-                startActivity(new Intent(LoginActivity.this, AppartmentsActivity.class));
+                if (username.getText().toString() != null || password.getText().toString() != null){
+                    if (SharedPrefManager.getInstance(LoginActivity.this).isLoggedIn()){
+                        Toast.makeText(LoginActivity.this,"User Already Exist",Toast.LENGTH_LONG).show();
+
+                    }else {
+                        SharedPrefManager.getInstance(LoginActivity.this).userLogin(username.getText().toString(),password.getText().toString());
+                        startActivity(new Intent(LoginActivity.this,AppartmentsActivity.class));
+                        finish();
+                    }
+                }else {
+                    Toast.makeText(LoginActivity.this,"تأكد من ملئ جميع الحقول.",Toast.LENGTH_LONG).show();
+                }
+
             }
         });
     }
 
-    public void checkIfNull(String username, String password){
 
-        if (username == null || password == null ){
-            Toast.makeText(this,"يجب ملئ الحقول بصورة صحيحة",Toast.LENGTH_SHORT).show();
-        }
-
-    }
 
 }

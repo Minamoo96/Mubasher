@@ -1,31 +1,23 @@
 package com.example.mobasher;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.Manifest;
 import android.app.Activity;
-import android.content.ActivityNotFoundException;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.io.File;
-import java.net.URI;
-import java.util.Date;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
+
+import com.example.mobasher.Utils.SharedPrefManager;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -33,6 +25,7 @@ public class RegisterActivity extends Activity {
 
     private static final int CAMERA_REQUEST = 1888;
     private static final int MY_CAMERA_PERMISSION_CODE = 100;
+    private static final int SELECT_PICTURE = 200;
 
     EditText fname, laname, phone, email, fpassword, lpassword;
     CircleImageView imageAdder;
@@ -49,54 +42,63 @@ public class RegisterActivity extends Activity {
             email = findViewById(R.id.text_field_email);
             fpassword = findViewById(R.id.text_field_password);
             lpassword = findViewById(R.id.text_field_repass);
+            imageAdder = findViewById(R.id.imgadder);
+            imageAdder.setBorderWidth(3);
+            imageAdder.setBorderColor(Color.parseColor("#4CAF50"));
+            imageAdder.setPadding(15, 15, 15, 15);
         }
-        imageAdder = findViewById(R.id.imgadder);
-        imageAdder.setBorderWidth(5);
-        imageAdder.setBorderColor(Color.parseColor("#007505"));
-        imageAdder.setPadding(15,15,15,15);
+
         imageAdder.setOnClickListener(new View.OnClickListener() {
 
             @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View v) {
-
-                if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_DENIED){
-                    requestPermissions(new String[]{Manifest.permission.CAMERA}, MY_CAMERA_PERMISSION_CODE);
-                }else {
-
-                    Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                    startActivityForResult(cameraIntent, CAMERA_REQUEST);
-                }
+                openDialog(v);
             }
         });
 
         findViewById(R.id.register_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (checkIfNull(fname.getText().toString(),laname.getText().toString(),
-                        phone.getText().toString(),email.getText().toString(),fpassword.toString(),
-                        lpassword.getText().toString())){
-                    if (checkPasswords(fpassword.getText().toString(),lpassword.getText().toString())){
-                        startActivity(new Intent(RegisterActivity.this, OtpActivity.class));
+                if (!fname.getText().toString().equals(null) || !laname.getText().toString().equals(null)
+                || email.getText().toString() != null || phone.getText().toString() != null
+                || lpassword.getText().toString() != null ) {
+                    if (fpassword.getText().toString().equals(lpassword.getText().toString())) {
+                        if (SharedPrefManager.getInstance(RegisterActivity.this).isLoggedIn())
+                        {Toast.makeText(RegisterActivity.this,
+                                "User Already Exists",Toast.LENGTH_LONG).show();}
+                        else {
+                            SharedPrefManager.getInstance(RegisterActivity.this).userSignup(fname.getText().toString(),
+                                    laname.getText().toString(),email.getText().toString(),phone.getInputType(),
+                                    fpassword.getText().toString());
+                            Toast.makeText(RegisterActivity.this,
+                                    "Thank You For Registering With Us: " +fname +" "+ laname
+                                    ,Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(RegisterActivity.this, AppartmentsActivity.class));
+                        }
+                    } else {
+                        Toast.makeText(RegisterActivity.this,
+                                "تأكد من مطابقة كلمات المرور ثم حاول مرة أخرى.",
+                                Toast.LENGTH_LONG).show();
                     }
+                } else {
+                    Toast.makeText(RegisterActivity.this,
+                            "تأكد من ملئ كل الحقول ثم المحاولة مرة أخرى.",
+                            Toast.LENGTH_LONG).show();
                 }
             }
         });
     }
+
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
-    {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == MY_CAMERA_PERMISSION_CODE)
-        {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
-            {
+        if (requestCode == MY_CAMERA_PERMISSION_CODE) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(this, "camera permission granted", Toast.LENGTH_LONG).show();
                 Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(cameraIntent, CAMERA_REQUEST);
-            }
-            else
-            {
+            } else {
                 Toast.makeText(this, "camera permission denied", Toast.LENGTH_LONG).show();
             }
         }
@@ -105,24 +107,49 @@ public class RegisterActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             imageAdder.setImageBitmap(photo);
         }
+        if (resultCode == RESULT_OK) {
+
+            if (requestCode == SELECT_PICTURE) {
+                // Get the url of the image from data
+                Uri selectedImageUri = data.getData();
+                if (null != selectedImageUri) {
+                    // update the preview image in the layout
+                    imageAdder.setImageURI(selectedImageUri);
+                }
+            }
+        }
     }
 
-    public boolean checkIfNull(String fname, String lname, String email, String phone, String fpass, String lpass){
+    public void openDialog(View view){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage("Please Select An Image Action");
+        alertDialogBuilder.setPositiveButton("Camera", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface arg0, int arg1) {
 
-        if (fname == null || lname == null || email == null || phone == null || fpass == null || lpass == null){
-            Toast.makeText(this,"يجب ملئ جميع الحقول بصورة صحيحة", Toast.LENGTH_SHORT).show();
-        }
-        return false;
-    }
+                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(cameraIntent, CAMERA_REQUEST);
+            }
+        });
 
-    public boolean checkPasswords(String Password1, String Password2){
-        if (!Password1.equals(Password2)){
-            Toast.makeText(this,"تأكد من تطابق كلمات المرور ثم حاول مرة اخرى", Toast.LENGTH_SHORT).show();
-        }
-        return false;
+        alertDialogBuilder.setNegativeButton("Pick Image",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                Intent i = new Intent();
+                i.setType("image/*");
+                i.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(i, "Select Picture"), SELECT_PICTURE);
+            }
+        });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
 }
+
