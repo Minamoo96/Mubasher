@@ -92,6 +92,7 @@
         android:inputType="textEmailAddress"
         android:padding="5dp"
         android:textColorHint="@color/colorPrimary"
+        android:textColor="@color/colorSimiPrimary"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText

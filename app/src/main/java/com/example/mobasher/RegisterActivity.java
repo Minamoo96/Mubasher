@@ -60,31 +60,31 @@ public class RegisterActivity extends Activity {
         findViewById(R.id.register_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!fname.getText().toString().equals(null) || !laname.getText().toString().equals(null)
-                || email.getText().toString() != null || phone.getText().toString() != null
-                || lpassword.getText().toString() != null ) {
-                    if (fpassword.getText().toString().equals(lpassword.getText().toString())) {
-                        if (SharedPrefManager.getInstance(RegisterActivity.this).isLoggedIn())
-                        {Toast.makeText(RegisterActivity.this,
-                                "User Already Exists",Toast.LENGTH_LONG).show();}
-                        else {
-                            SharedPrefManager.getInstance(RegisterActivity.this).userSignup(fname.getText().toString(),
-                                    laname.getText().toString(),email.getText().toString(),phone.getInputType(),
-                                    fpassword.getText().toString());
-                            Toast.makeText(RegisterActivity.this,
-                                    "Thank You For Registering With Us: " +fname +" "+ laname
-                                    ,Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(RegisterActivity.this, AppartmentsActivity.class));
-                        }
-                    } else {
+                if (fname.getText().toString().isEmpty() || laname.getText().toString().isEmpty()
+                || email.getText().toString().isEmpty() || phone.getText().toString().isEmpty()
+                || lpassword.getText().toString().isEmpty() ) {
+
+                    Toast.makeText(RegisterActivity.this,"تأكد من ملئ كل الحقول ثم المحاولة مرة أخرى",Toast.LENGTH_LONG).show();
+                    if (!fpassword.getText().toString().equals(lpassword.getText().toString())) {
                         Toast.makeText(RegisterActivity.this,
-                                "تأكد من مطابقة كلمات المرور ثم حاول مرة أخرى.",
+                                "تأكد من مطابقة كلمات المرور ثم المحاولة مرة أخرى.",
                                 Toast.LENGTH_LONG).show();
                     }
-                } else {
-                    Toast.makeText(RegisterActivity.this,
-                            "تأكد من ملئ كل الحقول ثم المحاولة مرة أخرى.",
-                            Toast.LENGTH_LONG).show();
+                }else {
+                        if (SharedPrefManager.getInstance(RegisterActivity.this).isLoggedIn())
+                        {
+                            Toast.makeText(RegisterActivity.this,
+                                    "User Already Exists",Toast.LENGTH_LONG).show();
+                        }
+                        else {
+                            SharedPrefManager.getInstance(RegisterActivity.this).userSignup(fname.getText().toString(),
+                                    laname.getText().toString(), email.getText().toString(), phone.getInputType(),
+                                    fpassword.getText().toString());
+                            Toast.makeText(RegisterActivity.this,
+                                    "Thank You For Registering With Us: " + fname + " " + laname
+                                    , Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(RegisterActivity.this, AppartmentsActivity.class));
+                        }
                 }
             }
         });
@@ -128,6 +128,8 @@ public class RegisterActivity extends Activity {
     public void openDialog(View view){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("Please Select An Image Action");
+        final View customLayout = getLayoutInflater().inflate(R.layout.custom_alert_dialog, null);
+        alertDialogBuilder.setView(customLayout);
         alertDialogBuilder.setPositiveButton("Camera", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface arg0, int arg1) {

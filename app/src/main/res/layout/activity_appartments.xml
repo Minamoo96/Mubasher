@@ -7,7 +7,7 @@
     android:background="@drawable/mubashir_login"
     android:orientation="vertical">
     <LinearLayout
-        android:layout_marginStart="30dp"
+        android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -25,12 +25,23 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome :"
+            android:text="Welcome :\n"
             android:textStyle="bold"
             android:textColor="@color/colorSimiPrimary"
             android:textSize="18sp"
             android:fontFamily="@font/jazeera_arabic_regular"/>
 
+        <ImageView
+            android:id="@+id/logoutButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="120dp"
+            android:layout_marginEnd="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_signout"
+            tools:ignore="SpeakableTextPresentCheck" />
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
