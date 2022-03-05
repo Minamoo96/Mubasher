@@ -7,25 +7,344 @@
     android:orientation="vertical"
     android:background="@drawable/mubashir_login">
 
-    <ImageView
-        android:id="@+id/logoutButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="320dp"
+    <LinearLayout
         android:layout_marginTop="20dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/ic_signout"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ListView
-        android:layout_marginTop="10dp"
         android:layout_gravity="center"
-        android:id="@+id/apartmentLister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:background="@drawable/edit_text_shape"
+            android:drawableStart="@drawable/ic_search"
+            android:padding="10dp"
+            android:hint="@string/search"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="18sp"
+            android:textColor="@color/colorSimiPrimary"
+            android:inputType="text"/>
+
+        <ImageView
+            android:layout_gravity="center"
+            android:id="@+id/logoutButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_signout"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="540dp"
-
-        />
+        android:layout_height="540dp">
 
 
+            <LinearLayout
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_width="190dp"
+                    android:layout_height="160dp"
+                    android:src="@drawable/img_full"/>
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="التفصيل: شقة دبل دوبليكس"
+                        android:textColor="@color/colorSimiPrimary"
+                        android:fontFamily="@font/jazeera_arabic_regular"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_margin="2dp"/>
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_margin="2dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="الغرف: 3 غرف + 2 حمام + 1 هول"
+                        android:textColor="@color/colorSimiPrimary"
+                        android:fontFamily="@font/jazeera_arabic_regular"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="النوع: جناح فاخر"
+                        android:textColor="@color/colorSimiPrimary"
+                        android:fontFamily="@font/jazeera_arabic_regular"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_margin="2dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="الإرتفاع: طابق أرضي"
+                        android:textColor="@color/colorSimiPrimary"
+                        android:fontFamily="@font/jazeera_arabic_regular"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="التفاصيل"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_margin="2dp"
+                        android:fontFamily="@font/jazeera_arabic_regular"
+                        android:textColor="@color/colorSimiPrimary"
+                        android:layout_gravity="center"
+                        android:background="@drawable/btn_shape"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_width="190dp"
+                    android:layout_height="160dp"
+                    android:src="@drawable/img_full"/>
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="التفصيل: شقة دبل دوبليكس"
+                        android:textColor="@color/colorSimiPrimary"
+                        android:fontFamily="@font/jazeera_arabic_regular"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_margin="2dp"/>
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_margin="2dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="الغرف: 2 غرف + 2 حمام + 1 هول"
+                        android:textColor="@color/colorSimiPrimary"
+                        android:fontFamily="@font/jazeera_arabic_regular"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="النوع: جناح فاخر"
+                        android:textColor="@color/colorSimiPrimary"
+                        android:fontFamily="@font/jazeera_arabic_regular"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_margin="2dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="الإرتفاع: طابق أرضي"
+                        android:textColor="@color/colorSimiPrimary"
+                        android:fontFamily="@font/jazeera_arabic_regular"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="التفاصيل"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_margin="2dp"
+                        android:fontFamily="@font/jazeera_arabic_regular"
+                        android:textColor="@color/colorSimiPrimary"
+                        android:layout_gravity="center"
+                        android:background="@drawable/btn_shape"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_width="190dp"
+                    android:layout_height="160dp"
+                    android:src="@drawable/img_full"/>
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="التفصيل: شقة دبل دوبليكس"
+                        android:textColor="@color/colorSimiPrimary"
+                        android:fontFamily="@font/jazeera_arabic_regular"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_margin="2dp"/>
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_margin="2dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="الغرف: 4 غرف + 3 حمام + 2 هول"
+                        android:textColor="@color/colorSimiPrimary"
+                        android:fontFamily="@font/jazeera_arabic_regular"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="النوع: جناح فاخر"
+                        android:textColor="@color/colorSimiPrimary"
+                        android:fontFamily="@font/jazeera_arabic_regular"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_margin="2dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="الإرتفاع: طابق أرضي"
+                        android:textColor="@color/colorSimiPrimary"
+                        android:fontFamily="@font/jazeera_arabic_regular"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="التفاصيل"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_margin="2dp"
+                        android:fontFamily="@font/jazeera_arabic_regular"
+                        android:textColor="@color/colorSimiPrimary"
+                        android:layout_gravity="center"
+                        android:background="@drawable/btn_shape"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_width="190dp"
+                    android:layout_height="160dp"
+                    android:src="@drawable/img_full"/>
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="التفصيل: شقة دبل دوبليكس"
+                        android:textColor="@color/colorSimiPrimary"
+                        android:fontFamily="@font/jazeera_arabic_regular"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_margin="2dp"/>
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_margin="2dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="الغرف: 3 غرف + 2 حمام + 1 هول"
+                        android:textColor="@color/colorSimiPrimary"
+                        android:fontFamily="@font/jazeera_arabic_regular"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="النوع: جناح فاخر"
+                        android:textColor="@color/colorSimiPrimary"
+                        android:fontFamily="@font/jazeera_arabic_regular"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_gravity="center"
+                        android:layout_margin="2dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="الإرتفاع: طابق أرضي"
+                        android:textColor="@color/colorSimiPrimary"
+                        android:fontFamily="@font/jazeera_arabic_regular"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="التفاصيل"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_margin="2dp"
+                        android:fontFamily="@font/jazeera_arabic_regular"
+                        android:textColor="@color/colorSimiPrimary"
+                        android:layout_gravity="center"
+                        android:background="@drawable/btn_shape"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+    </LinearLayout>
 </LinearLayout>

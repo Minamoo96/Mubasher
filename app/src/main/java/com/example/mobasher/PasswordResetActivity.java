@@ -8,6 +8,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.mobasher.Utils.SharedPrefManager;
+
 public class PasswordResetActivity extends AppCompatActivity {
     EditText search;
     @Override
@@ -23,6 +25,7 @@ public class PasswordResetActivity extends AppCompatActivity {
                         "الرجاء قم بإدخال رقم هاتفك الصحيح ثم المتابعة",
                         Toast.LENGTH_LONG).show();
             } else {
+                if (SharedPrefManager.getInstance(getApplicationContext()).getKeyUserphone().equals(search.getText().toString()))
                     startActivity(new Intent(PasswordResetActivity.this, NewPasswordActivity.class));
             }
         });

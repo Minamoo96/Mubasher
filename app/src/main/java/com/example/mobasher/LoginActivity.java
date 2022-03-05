@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -35,29 +36,22 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         username = findViewById(R.id.edit_text_username);
-        password = findViewById(R.id.edit_text_password);
+//        password = findViewById(R.id.edit_text_password);
 
-        findViewById(R.id.new_acount).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-            }
-        });
+        findViewById(R.id.new_acount).setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, RegisterActivity.class)));
 
-        findViewById(R.id.forget_password).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, PasswordResetActivity.class));
-            }
-        });
+        findViewById(R.id.forget_password).setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, PasswordResetActivity.class)));
 
-        findViewById(R.id.login_botton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (username.getText().toString().isEmpty() || password.getText().toString().isEmpty()){
-                    Toast.makeText(LoginActivity.this,"تأكد من ملئ جميع الحقول.",Toast.LENGTH_LONG).show();
+        findViewById(R.id.login_botton).setOnClickListener(view -> {
+            if (username.getText().toString().isEmpty()){
+                Toast.makeText(LoginActivity.this,"تأكد من إدخال رقم هاتفك الصحيح.",Toast.LENGTH_LONG).show();
+            }else {
+                if (SharedPrefManager.getInstance(getApplicationContext()).isLoggedIn()) {
+                    Toast.makeText(LoginActivity.this, "مرحبا بك مجدداَ", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(LoginActivity.this, AppartmentsActivity.class));
+                    finish();
                 }else {
-                    SharedPrefManager.getInstance(getApplicationContext()).userLogin(username.getText().toString(),password.getText().toString());
+                    Toast.makeText(LoginActivity.this, "عذراَ: يبدو أنك تحاول تحاول تسجيل دخول برقم حساب مختلف. تأكد من رقم حسابك ثم المحاولة مرة أخرى.", Toast.LENGTH_LONG).show();
                 }
             }
         });

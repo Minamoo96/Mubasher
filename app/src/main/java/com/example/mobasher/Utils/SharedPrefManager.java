@@ -3,6 +3,7 @@ package com.example.mobasher.Utils;
 import static java.lang.String.valueOf;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 public class SharedPrefManager {
 
@@ -45,25 +46,19 @@ public class SharedPrefManager {
 
     }
 
-    public void userLogin(String userEmail, String userPassword){
+    public void userLogin(String userPhone){
 
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        editor.putString(KEY_USERNAME, userEmail);
-        editor.putString(KEY_USERPASSWORD, userPassword);
-
+        editor.putString(KEY_USERPHONE, userPhone);
         editor.apply();
 
     }
 
     public String getKeyUserphone(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        if (sharedPreferences.getString(KEY_USERPHONE,null) != null)
-            return KEY_USERPHONE;
-
-        else
-        return null;
+        return sharedPreferences.getString(KEY_USERPHONE," ");
     }
 
     public void changepass(String pass){
@@ -76,7 +71,7 @@ public class SharedPrefManager {
 
     public boolean isLoggedIn(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        if (sharedPreferences.getString(KEY_USERMAIL, null) != null && sharedPreferences.getString(KEY_USERPASSWORD,null) != null){
+        if (sharedPreferences.getString(KEY_USERMAIL, null) != null){
             return true;
         }
         return false;

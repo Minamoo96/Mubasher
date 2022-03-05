@@ -1,5 +1,5 @@
 <resources>
-    <string name="username1">إسم المستخدم</string>
+    <string name="username1">رقم الهاتف</string>
     <string name="password1">كلمة المرور</string>
     <string name="login">تسجيل الدخول</string>
     <string name="newAccount">ليس لديك حساب؟ إضغط هنا</string>
@@ -34,4 +34,6 @@
     <string name="suits">شقق فندقية</string>
     <string name="fullapart">شقق مفروشة</string>
     <string name="notFullApart">شقق غير مفروشة</string>
+    <string name="welcomen">Welcome :\n</string>
+    <string name="search">Search</string>
 </resources>

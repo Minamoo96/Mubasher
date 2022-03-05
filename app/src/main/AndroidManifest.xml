@@ -5,9 +5,10 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
-
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"
+        android:required="true"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"
+        android:required="true"/>
 
     <application
         android:icon="@mipmap/mobasher_icon_fresh"

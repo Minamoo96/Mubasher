@@ -35,14 +35,13 @@ public class NewPasswordActivity extends AppCompatActivity {
                     if (repass1.getText().toString().equals(repass2.getText().toString())) {
                       if (SharedPrefManager.getInstance(getApplicationContext()).isLoggedIn()) {
                           SharedPrefManager.getInstance(getApplicationContext()).changepass(repass1.getText().toString());
+
                           Toast.makeText(NewPasswordActivity.this, "تم تأكيد كلمات المرور", Toast.LENGTH_LONG).show();
                           startActivity(new Intent(NewPasswordActivity.this, LoginActivity.class));
                       }
-
-
-                    } //else {
-                        //Toast.makeText(NewPasswordActivity.this, "كلمات المرور ليست متطابقة. تأكد من أن كلمات المرور يجب ان تتطابق", Toast.LENGTH_LONG).show();
-                    //}
+                    } else {
+                        Toast.makeText(NewPasswordActivity.this, "كلمات المرور ليست متطابقة. تأكد من أن كلمات المرور يجب ان تتطابق", Toast.LENGTH_LONG).show();
+                    }
                 }
             }
         });

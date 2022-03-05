@@ -19,38 +19,23 @@
 
     <EditText
         android:id="@+id/edit_text_username"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="45dp"
         android:layout_width="320dp"
         android:layout_height="55dp"
         android:layout_gravity="center"
         android:background="@drawable/edit_text_shape"
-        android:drawableEnd="@drawable/ic_username"
+        android:drawableStart="@drawable/ic_phone"
         android:fontFamily="@font/jazeera_arabic_regular"
         android:hint="@string/username1"
         android:padding="10dp"
         android:textColor="@color/colorSimiPrimary"
         android:textColorHint="@color/colorPrimary"
         android:textSize="18sp"
-        android:inputType="textEmailAddress" />
-
-    <EditText
-        android:id="@+id/edit_text_password"
-        android:layout_marginTop="15dp"
-        android:layout_width="320dp"
-        android:layout_height="55dp"
-        android:layout_gravity="center"
-        android:background="@drawable/edit_text_shape"
-        android:drawableEnd="@drawable/ic_username"
-        android:fontFamily="@font/jazeera_arabic_regular"
-        android:hint="@string/password1"
-        android:padding="10dp"
-        android:textColor="@color/colorSimiPrimary"
-        android:textColorHint="@color/colorPrimary"
-        android:textSize="18sp" />
+        android:inputType="phone" />
 
     <Button
         android:layout_gravity="center"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="35dp"
         android:id="@+id/login_botton"
         android:layout_width="240dp"
         android:layout_height="60dp"

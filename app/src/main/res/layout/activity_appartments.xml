@@ -8,15 +8,15 @@
     android:orientation="vertical">
     <LinearLayout
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgProfile"
             android:layout_gravity="center"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@drawable/ic_person_add"
             />
         <TextView
@@ -25,7 +25,7 @@
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome :\n"
+            android:text="@string/welcomen"
             android:textStyle="bold"
             android:textColor="@color/colorSimiPrimary"
             android:textSize="18sp"
@@ -33,33 +33,38 @@
 
         <ImageView
             android:id="@+id/logoutButton"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginStart="120dp"
             android:layout_marginEnd="10dp"
             android:clickable="true"
             android:focusable="true"
             android:src="@drawable/ic_signout"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
     </LinearLayout>
 
-    <androidx.cardview.widget.CardView
+    <LinearLayout
+        android:id="@+id/loImgs"
+        android:layout_marginTop="30dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/imgs"
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_gravity="center"
+            android:id="@+id/imgRecycler"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
+            android:layout_height="280dp"
+            android:visibility="visible"/>
 
-    </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
 
     <LinearLayout
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_gravity="center"
         android:orientation="horizontal"
         android:layout_width="wrap_content"
