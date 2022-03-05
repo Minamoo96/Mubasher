@@ -56,6 +56,14 @@ public class SharedPrefManager {
 
     }
 
+    public void changepass(String pass){
+
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(KEY_USERPASSWORD, pass);
+        editor.apply();
+    }
+
     public boolean isLoggedIn(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         if (sharedPreferences.getString(KEY_USERMAIL, null) != null && sharedPreferences.getString(KEY_USERPASSWORD,null) != null){

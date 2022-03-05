@@ -5,13 +5,14 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
-public interface ApiInterface {
+public interface RegisterInterface {
 
     @FormUrlEncoded // annotation used in POST type requests
     @POST("/retrofit/register.php")     // API's endpoints
-    void registration(@Field("name") String name,
+    void registration(@Field("fname") String fname,
+                      @Field("lname") String lname,
                       @Field("email") String email,
+                      @Field("phone") String phone,
                       @Field("password") String password,
-                      @Field("logintype") String logintype,
                       Callback<SignUpUser> callback);
 }
