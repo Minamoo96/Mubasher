@@ -1,5 +1,6 @@
 package com.example.mobasher.Utils;
 
+import static java.lang.String.valueOf;
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -29,7 +30,7 @@ public class SharedPrefManager {
     }
 
     public void userSignup(String firstname, String lastname, String email,
-                           int phone, String password){
+                           String phone, String password){
 
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -37,7 +38,7 @@ public class SharedPrefManager {
         editor.putString(KEY_FNAME, firstname);
         editor.putString(KEY_LNAME,lastname);
         editor.putString(KEY_USERMAIL,email);
-        editor.putInt(KEY_USERPHONE, phone);
+        editor.putString(KEY_USERPHONE, phone);
         editor.putString(KEY_USERPASSWORD,password);
 
         editor.apply();
@@ -54,6 +55,15 @@ public class SharedPrefManager {
 
         editor.apply();
 
+    }
+
+    public String getKeyUserphone(){
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        if (sharedPreferences.getString(KEY_USERPHONE,null) != null)
+            return KEY_USERPHONE;
+
+        else
+        return null;
     }
 
     public void changepass(String pass){

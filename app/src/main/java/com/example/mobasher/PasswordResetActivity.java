@@ -1,22 +1,29 @@
 package com.example.mobasher;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class PasswordResetActivity extends AppCompatActivity {
-
+    EditText search;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_password_reset);
 
-        findViewById(R.id.buttonSearch).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(PasswordResetActivity.this, NewPasswordActivity.class));
+        search = findViewById(R.id.search_account);
+
+        findViewById(R.id.buttonSearch).setOnClickListener(v -> {
+            if (search.getText().toString().isEmpty()) {
+                Toast.makeText(PasswordResetActivity.this,
+                        "الرجاء قم بإدخال رقم هاتفك الصحيح ثم المتابعة",
+                        Toast.LENGTH_LONG).show();
+            } else {
+                    startActivity(new Intent(PasswordResetActivity.this, NewPasswordActivity.class));
             }
         });
 

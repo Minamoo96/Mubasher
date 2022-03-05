@@ -1,20 +1,17 @@
 package com.example.mobasher;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 
 import com.example.mobasher.Utils.SharedPrefManager;
@@ -48,44 +45,34 @@ public class RegisterActivity extends Activity {
             imageAdder.setPadding(15, 15, 15, 15);
         }
 
-        imageAdder.setOnClickListener(new View.OnClickListener() {
+        imageAdder.setOnClickListener(this::openDialog);
 
-            @RequiresApi(api = Build.VERSION_CODES.M)
-            @Override
-            public void onClick(View v) {
-                openDialog(v);
-            }
-        });
+        findViewById(R.id.register_button).setOnClickListener(v -> {
+            if (fname.getText().toString().isEmpty() || laname.getText().toString().isEmpty()
+            || email.getText().toString().isEmpty() || phone.getText().toString().isEmpty()
+            || lpassword.getText().toString().isEmpty() ) {
 
-        findViewById(R.id.register_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (fname.getText().toString().isEmpty() || laname.getText().toString().isEmpty()
-                || email.getText().toString().isEmpty() || phone.getText().toString().isEmpty()
-                || lpassword.getText().toString().isEmpty() ) {
-
-                    Toast.makeText(RegisterActivity.this,"تأكد من ملئ كل الحقول ثم المحاولة مرة أخرى",Toast.LENGTH_LONG).show();
-                    if (!fpassword.getText().toString().equals(lpassword.getText().toString())) {
-                        Toast.makeText(RegisterActivity.this,
-                                "تأكد من مطابقة كلمات المرور ثم المحاولة مرة أخرى.",
-                                Toast.LENGTH_LONG).show();
-                    }
-                }else {
-                        if (SharedPrefManager.getInstance(RegisterActivity.this).isLoggedIn())
-                        {
-                            Toast.makeText(RegisterActivity.this,
-                                    "User Already Exists",Toast.LENGTH_LONG).show();
-                        }
-                        else {
-                            SharedPrefManager.getInstance(RegisterActivity.this).userSignup(fname.getText().toString(),
-                                    laname.getText().toString(), email.getText().toString(), phone.getInputType(),
-                                    fpassword.getText().toString());
-                            Toast.makeText(RegisterActivity.this,
-                                    "Thank You For Registering With Us: " + fname + " " + laname
-                                    , Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(RegisterActivity.this, AppartmentsActivity.class));
-                        }
+                Toast.makeText(RegisterActivity.this,"تأكد من ملئ كل الحقول ثم المحاولة مرة أخرى",Toast.LENGTH_LONG).show();
+                if (!fpassword.getText().toString().equals(lpassword.getText().toString())) {
+                    Toast.makeText(RegisterActivity.this,
+                            "تأكد من مطابقة كلمات المرور ثم المحاولة مرة أخرى.",
+                            Toast.LENGTH_LONG).show();
                 }
+            }else {
+                    if (SharedPrefManager.getInstance(RegisterActivity.this).isLoggedIn())
+                    {
+                        Toast.makeText(RegisterActivity.this,
+                                "User Already Exists",Toast.LENGTH_LONG).show();
+                    }
+                    else {
+                        SharedPrefManager.getInstance(RegisterActivity.this).userSignup(fname.getText().toString(),
+                                laname.getText().toString(), email.getText().toString(), phone.getText().toString(),
+                                fpassword.getText().toString());
+                        Toast.makeText(RegisterActivity.this,
+                                "Thank You For Registering With Us: " + fname + " " + laname
+                                , Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(RegisterActivity.this, AppartmentsActivity.class));
+                    }
             }
         });
     }
@@ -130,24 +117,18 @@ public class RegisterActivity extends Activity {
         alertDialogBuilder.setMessage("Please Select An Image Action");
         final View customLayout = getLayoutInflater().inflate(R.layout.custom_alert_dialog, null);
         alertDialogBuilder.setView(customLayout);
-        alertDialogBuilder.setPositiveButton("Camera", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface arg0, int arg1) {
+        alertDialogBuilder.setPositiveButton("Camera", (arg0, arg1) -> {
 
-                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                    startActivityForResult(cameraIntent, CAMERA_REQUEST);
-            }
+            Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cameraIntent, CAMERA_REQUEST);
         });
 
-        alertDialogBuilder.setNegativeButton("Pick Image",new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
+        alertDialogBuilder.setNegativeButton("Pick Image", (dialog, which) -> {
 
-                Intent i = new Intent();
-                i.setType("image/*");
-                i.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(i, "Select Picture"), SELECT_PICTURE);
-            }
+            Intent i = new Intent();
+            i.setType("image/*");
+            i.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(Intent.createChooser(i, "Select Picture"), SELECT_PICTURE);
         });
 
         AlertDialog alertDialog = alertDialogBuilder.create();
