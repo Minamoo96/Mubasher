@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
-    android:background="@drawable/mubashir_login">
+    android:background="@drawable/mubashir_main_back">
 
     <LinearLayout
         android:layout_marginTop="20dp"
@@ -43,10 +43,11 @@
         android:layout_gravity="center"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="540dp">
+        android:layout_height="640dp">
 
 
             <LinearLayout
+                android:layout_margin="5dp"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -55,7 +56,8 @@
                     android:layout_gravity="center"
                     android:layout_width="190dp"
                     android:layout_height="160dp"
-                    android:src="@drawable/img_full"/>
+                    android:src="@drawable/img_full"
+                    />
                 <LinearLayout
                     android:layout_gravity="center"
                     android:orientation="vertical"
@@ -122,6 +124,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:layout_margin="5dp"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
@@ -131,7 +134,7 @@
                     android:layout_gravity="center"
                     android:layout_width="190dp"
                     android:layout_height="160dp"
-                    android:src="@drawable/img_full"/>
+                    android:src="@drawable/img_simi"/>
                 <LinearLayout
                     android:layout_gravity="center"
                     android:orientation="vertical"
@@ -198,6 +201,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:layout_margin="5dp"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
@@ -207,7 +211,7 @@
                     android:layout_gravity="center"
                     android:layout_width="190dp"
                     android:layout_height="160dp"
-                    android:src="@drawable/img_full"/>
+                    android:src="@drawable/img_suit"/>
                 <LinearLayout
                     android:layout_gravity="center"
                     android:orientation="vertical"
@@ -272,6 +276,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:layout_margin="5dp"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
