@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface arg0, int arg1) {
                 SharedPrefManager.getInstance(MainActivity.this).logOut();
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 finish();
             }
         });

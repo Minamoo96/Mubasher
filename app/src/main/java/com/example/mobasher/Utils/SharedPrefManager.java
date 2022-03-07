@@ -2,8 +2,11 @@ package com.example.mobasher.Utils;
 
 import static java.lang.String.valueOf;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+
+import com.example.mobasher.Backend.User;
+import com.example.mobasher.LoginActivity;
 
 public class SharedPrefManager {
 
@@ -11,13 +14,13 @@ public class SharedPrefManager {
     private static Context mCtx;
     private static final String SHARED_PREF_NAME = "mysharedpref";
 
-
+    private static final String KEY_ID = "UID";
     private static final String KEY_FNAME = "FastName";
     private static final String KEY_LNAME = "LastName";
     private static final String KEY_USERMAIL = "Email";
     private static final String KEY_USERPHONE = "Phone";
     private static final String KEY_USERPASSWORD = "Password";
-    private static final String KEY_USERNAME = "Username";
+    private static final String KEY_USERIMAGE = "UserImage";
 
     private SharedPrefManager(Context context) {
         mCtx = context;
@@ -30,48 +33,37 @@ public class SharedPrefManager {
         return mInstance;
     }
 
-    public void userSignup(String firstname, String lastname, String email,
-                           String phone, String password){
+    public void userSignup(User user){
 
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-
-        editor.putString(KEY_FNAME, firstname);
-        editor.putString(KEY_LNAME,lastname);
-        editor.putString(KEY_USERMAIL,email);
-        editor.putString(KEY_USERPHONE, phone);
-        editor.putString(KEY_USERPASSWORD,password);
-
+        editor.putInt(KEY_ID, user.getId());
+        editor.putString(KEY_FNAME, user.getFirstName());
+        editor.putString(KEY_LNAME,user.getLastName());
+        editor.putString(KEY_USERMAIL, user.getEmail());
+        editor.putString(KEY_USERPHONE, user.getPhone());
+        editor.putString(KEY_USERPASSWORD, user.getPassword());
+        editor.putString(KEY_USERIMAGE, user.getImage());
         editor.apply();
 
     }
 
-    public void userLogin(String userPhone){
-
+    public User getUser() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-
-        editor.putString(KEY_USERPHONE, userPhone);
-        editor.apply();
-
-    }
-
-    public String getKeyUserphone(){
-        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        return sharedPreferences.getString(KEY_USERPHONE," ");
-    }
-
-    public void changepass(String pass){
-
-        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(KEY_USERPASSWORD, pass);
-        editor.apply();
+        return new User(
+                sharedPreferences.getInt(KEY_ID, -1),
+                sharedPreferences.getString(KEY_FNAME, null),
+                sharedPreferences.getString(KEY_LNAME, null),
+                sharedPreferences.getString(KEY_USERMAIL, null),
+                sharedPreferences.getString(KEY_USERPHONE, null),
+                sharedPreferences.getString(KEY_USERPASSWORD, null),
+                sharedPreferences.getString(KEY_USERIMAGE, null)
+        );
     }
 
     public boolean isLoggedIn(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        if (sharedPreferences.getString(KEY_USERMAIL, null) != null){
+        if (sharedPreferences.getString(KEY_USERPHONE, null) != null){
             return true;
         }
         return false;
@@ -82,6 +74,7 @@ public class SharedPrefManager {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
         editor.apply();
+        mCtx.startActivity(new Intent(mCtx, LoginActivity.class));
     }
 
 }
