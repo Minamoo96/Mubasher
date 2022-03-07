@@ -26,24 +26,20 @@ import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
-    EditText username;//password;
+    EditText username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-//        password = findViewById(R.id.edit_text_password);
 
         findViewById(R.id.new_acount).setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, RegisterActivity.class)));
 
         findViewById(R.id.forget_password).setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, PasswordResetActivity.class)));
 
-        findViewById(R.id.login_botton).setOnClickListener(view -> {
-            userLogin();
-        });
+        findViewById(R.id.login_botton).setOnClickListener(view -> userLogin() );
     }
-
     private void userLogin() {
         //first getting the values
         final String usernam = username.getText().toString();
